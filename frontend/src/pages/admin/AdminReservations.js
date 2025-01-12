@@ -31,7 +31,7 @@ function AdminReservationsPage() {
 
 	const handleApproveConfirm = async () => {
 		try {
-			await axios.put(`http://localhost:8000/api/reservations/update/${selectedItem._id}`, { status: 'Approved' });
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reservations/update/${selectedItem._id}`, { status: 'Approved' });
 			await fetchReservations();
 			setIsApproveModalOpen(false);
 		} catch (error) {
@@ -41,7 +41,7 @@ function AdminReservationsPage() {
 
 	const handleDeclineConfirm = async () => {
 		try {
-			await axios.put(`http://localhost:8000/api/reservations/update/${selectedItem._id}`, { status: 'Declined' });
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reservations/update/${selectedItem._id}`, { status: 'Declined' });
 			await fetchReservations();
 			setIsDeclineModalOpen(false);
 		} catch (error) {
@@ -51,7 +51,7 @@ function AdminReservationsPage() {
 
 	const handleUndoConfirm = async () => {
 		try {
-			await axios.put(`http://localhost:8000/api/reservations/update/${selectedItem._id}`, { status: 'Pending' });
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reservations/update/${selectedItem._id}`, { status: 'Pending' });
 			await fetchReservations();
 			setIsUndoModalOpen(false);
 		} catch (error) {
@@ -61,7 +61,7 @@ function AdminReservationsPage() {
 
 	const fetchReservations = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/reservations');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reservations');
 			setReservations(response.data);
 		} catch (error) {
 			console.error('Error fetching reservations:', error);

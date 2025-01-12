@@ -30,7 +30,7 @@ function NewProductModal({ isOpen, onClose, onSave }) {
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
-				const response = await fetch('http://localhost:8000/api/categories');
+				const response = await fetch('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories');
 				if (!response.ok) throw new Error('Failed to fetch categories');
 				const data = await response.json();
 				setCategories(data.categories);

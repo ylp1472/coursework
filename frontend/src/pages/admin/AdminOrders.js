@@ -20,7 +20,7 @@ function AdminOrdersPage() {
 			const payload = {
 				status: updatedItem.status
 			};
-			await axios.put(`http://localhost:8000/api/orders/update/${updatedItem._id}`, payload);
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/orders/update/${updatedItem._id}`, payload);
 			await fetchOrders();
 			setIsModalOpen(false);
 		} catch (error) {
@@ -30,7 +30,7 @@ function AdminOrdersPage() {
 
 	const fetchOrders = async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/orders');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/orders');
 			setOrders(response.data);
 		} catch (error) {
 			console.error('Error fetching orders:', error);

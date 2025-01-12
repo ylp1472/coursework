@@ -24,7 +24,7 @@ function AdminUsersPage() {
 				password: adminData.password,
 				role: 'Admin'
 			};
-			await axios.post('http://localhost:8000/api/admins/create', payload);
+			await axios.post('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/admins/create', payload);
 			await fetchAdmins();
 			setIsNewAdminModalOpen(false);
 		} catch (error) {
@@ -51,14 +51,14 @@ function AdminUsersPage() {
 					name: updatedItem.name,
 					email: updatedItem.email
 				};
-				await axios.put(`http://localhost:8000/api/users/update/${updatedItem._id}`, payload);
+				await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/users/update/${updatedItem._id}`, payload);
 				await fetchUsers();
 			} else {
 				const payload = {
 					name: updatedItem.name,
 					email: updatedItem.email
 				};
-				await axios.put(`http://localhost:8000/api/admins/update/${updatedItem._id}`, payload);
+				await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/admins/update/${updatedItem._id}`, payload);
 				await fetchAdmins();
 			}
 			setIsModalOpen(false);
@@ -70,10 +70,10 @@ function AdminUsersPage() {
 	const handleDeleteConfirm = async () => {
 		try {
 			if (selectedType === 'user') {
-				await axios.delete(`http://localhost:8000/api/users/delete/${selectedItem._id}`);
+				await axios.delete(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/users/delete/${selectedItem._id}`);
 				await fetchUsers();
 			} else {
-				await axios.delete(`http://localhost:8000/api/admins/delete/${selectedItem._id}`);
+				await axios.delete(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/admins/delete/${selectedItem._id}`);
 				await fetchAdmins();
 			}
 			setIsDeleteModalOpen(false);
@@ -84,7 +84,7 @@ function AdminUsersPage() {
 
 	const fetchUsers = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/users');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/users');
 			setUsers(response.data);
 		} catch (error) {
 			console.error('Error fetching users:', error);
@@ -93,7 +93,7 @@ function AdminUsersPage() {
 
 	const fetchAdmins = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/admins');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/admins');
 			setAdmins(response.data);
 		} catch (error) {
 			console.error('Error fetching admins:', error);

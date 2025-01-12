@@ -9,7 +9,7 @@ function CategoriesSlider() {
 
 	const fetchCategoriesForSlider = async (page) => {
 		try {
-			const response = await axios.get(`http://localhost:8000/api/categories?limit=5&page=${page}`);
+			const response = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories?limit=5&page=${page}`);
 			setCategoriesForSlider(response.data.categories);
 			setCategoriesForSliderTotalPages(Math.ceil(response.data.pagination.total / 5));
 		} catch (error) {

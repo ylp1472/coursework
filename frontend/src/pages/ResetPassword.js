@@ -32,7 +32,7 @@ function ResetPasswordPage() {
 			}
 
 			// Send token and new password to backend
-			await axios.post('http://localhost:8000/api/auth/reset-password-with-token', {
+			await axios.post('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/auth/reset-password-with-token', {
 				resetToken,
 				newPassword
 			});

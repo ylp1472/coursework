@@ -21,7 +21,7 @@ function SearchResults() {
 				setIsLoading(true);
 				setError(null);
 				const encodedQuery = encodeURIComponent(query);
-				const searchRes = await axios.get(`http://localhost:8000/api/search?query=${encodedQuery}`);
+				const searchRes = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/search?query=${encodedQuery}`);
 				setSearchResults(searchRes.data.products);
 			} catch (err) {
 				setError(err.message);

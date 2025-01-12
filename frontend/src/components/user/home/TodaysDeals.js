@@ -9,7 +9,7 @@ function TodaysDealsSlider() {
 
 	const fetchTodaysDeals = async (page) => {
 		try {
-			const response = await axios.get(`http://localhost:8000/api/products?sort=discount&limit=3&page=${page}`);
+			const response = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/products?sort=discount&limit=3&page=${page}`);
 			setTodaysDeals(response.data.products);
 			setTodaysDealsTotalPages(Math.ceil(response.data.pagination.total / 3));
 		} catch (error) {

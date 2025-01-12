@@ -14,11 +14,11 @@ export function SingleCategoryPage() {
 		const fetchCategoryAndProducts = async () => {
 			try {
 				// Fetch category details
-				const categoryRes = await axios.get(`http://localhost:8000/api/categories/${categoryId}`);
+				const categoryRes = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories/${categoryId}`);
 				setCategory(categoryRes.data);
 
 				// Fetch products for this category
-				const productsRes = await axios.get(`http://localhost:8000/api/products?category=${categoryId}`);
+				const productsRes = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/products?category=${categoryId}`);
 				setProducts(productsRes.data.products);
 			} catch (err) {
 				console.error(err);

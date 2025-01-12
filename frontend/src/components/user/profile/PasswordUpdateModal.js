@@ -20,7 +20,7 @@ function PasswordUpdateModal({ isOpen, onClose }) {
 
 		try {
 			const token = localStorage.getItem('token');
-			const response = await axios.put('http://localhost:8000/api/auth/update-password', { newPassword }, {
+			const response = await axios.put('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/auth/update-password', { newPassword }, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 

@@ -20,7 +20,7 @@ function AdminCategoriesPage() {
 				name: categoryData.name,
 				image: categoryData.image
 			};
-			await axios.post('http://localhost:8000/api/categories/create', payload);
+			await axios.post('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories/create', payload);
 			await fetchCategories();
 			setIsNewCategoryModalOpen(false);
 		} catch (error) {
@@ -44,7 +44,7 @@ function AdminCategoriesPage() {
 				name: updatedItem.name,
 				image: updatedItem.image
 			};
-			await axios.put(`http://localhost:8000/api/categories/update/${updatedItem._id}`, payload);
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories/update/${updatedItem._id}`, payload);
 			await fetchCategories();
 			setIsModalOpen(false);
 		} catch (error) {
@@ -54,7 +54,7 @@ function AdminCategoriesPage() {
 
 	const handleDeleteConfirm = async () => {
 		try {
-			await axios.delete(`http://localhost:8000/api/categories/delete/${selectedItem._id}`);
+			await axios.delete(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories/delete/${selectedItem._id}`);
 			await fetchCategories();
 			setIsDeleteModalOpen(false);
 		} catch (error) {
@@ -64,7 +64,7 @@ function AdminCategoriesPage() {
 
 	const fetchCategories = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/categories');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories');
 			setCategories(response.data.categories);
 		} catch (error) {
 			console.error('Error fetching categories:', error);

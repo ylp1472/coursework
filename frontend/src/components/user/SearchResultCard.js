@@ -11,7 +11,7 @@ export function SearchResultCard({ product }) {
 	useEffect(() => {
 		const fetchCategory = async () => {
 			try {
-				const response = await axios.get(`http://localhost:8000/api/categories/${product.category}`);
+				const response = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories/${product.category}`);
 				setCategoryName(response.data.name);
 			} catch (error) {
 				console.error('Error fetching category:', error);

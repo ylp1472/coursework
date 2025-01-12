@@ -9,7 +9,7 @@ function PopularDishesSlider() {
 
 	const fetchPopularDishes = async (page) => {
 		try {
-			const response = await axios.get(`http://localhost:8000/api/products?limit=4&page=${page}`);
+			const response = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/products?limit=4&page=${page}`);
 			setPopularDishes(response.data.products);
 			setpopularDishesTotalPages(Math.ceil(response.data.pagination.total / 4));
 		} catch (error) {

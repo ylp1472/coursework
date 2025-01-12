@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/user/Navbar';
 import Footer from '../../components/user/Footer';
 
-const socket = io('http://localhost:8000', {
+const socket = io('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000', {
 	withCredentials: true,
 	transports: ['websocket', 'polling']
 });

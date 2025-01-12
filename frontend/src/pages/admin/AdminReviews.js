@@ -31,7 +31,7 @@ function AdminReviewsPage() {
 
 	const handleApproveConfirm = async () => {
 		try {
-			await axios.put(`http://localhost:8000/api/reviews/update/${selectedItem._id}`, { status: 'Approved' });
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reviews/update/${selectedItem._id}`, { status: 'Approved' });
 			await fetchReviews();
 			setIsApproveModalOpen(false);
 		} catch (error) {
@@ -41,7 +41,7 @@ function AdminReviewsPage() {
 
 	const handleDeclineConfirm = async () => {
 		try {
-			await axios.put(`http://localhost:8000/api/reviews/update/${selectedItem._id}`, { status: 'Declined' });
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reviews/update/${selectedItem._id}`, { status: 'Declined' });
 			await fetchReviews();
 			setIsDeclineModalOpen(false);
 		} catch (error) {
@@ -51,7 +51,7 @@ function AdminReviewsPage() {
 
 	const handleUndoConfirm = async () => {
 		try {
-			await axios.put(`http://localhost:8000/api/reviews/update/${selectedItem._id}`, { status: 'Pending' });
+			await axios.put(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reviews/update/${selectedItem._id}`, { status: 'Pending' });
 			await fetchReviews();
 			setIsUndoModalOpen(false);
 		} catch (error) {
@@ -61,7 +61,7 @@ function AdminReviewsPage() {
 
 	const fetchReviews = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/reviews');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reviews');
 			setReviews(response.data);
 		} catch (error) {
 			console.error('Error fetching reviews:', error);

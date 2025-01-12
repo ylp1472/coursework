@@ -19,7 +19,7 @@ const HelpCenter = () => {
 					throw new Error('Please login first');
 				}
 
-				const response = await axios.get('http://localhost:8000/api/auth/user', {
+				const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/auth/user', {
 					headers: {
 						Authorization: `Bearer ${token}`
 					}
@@ -99,7 +99,7 @@ const HelpCenter = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const response = axios.post('http://localhost:8000/api/tickets/create', {
+		const response = axios.post('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/tickets/create', {
 			email: email || user?.email,
 			subject,
 			description,

@@ -32,7 +32,7 @@ function AdminPage() {
 
 	const fetchAdminCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/admins?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/admins?sort=count');
 			setAdminCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching admin count:', error);
@@ -41,7 +41,7 @@ function AdminPage() {
 
 	const fetchCategoryCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/categories?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories?sort=count');
 			setCategoryCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching category count:', error);
@@ -50,7 +50,7 @@ function AdminPage() {
 
 	const fetchOrderCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/orders?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/orders?sort=count');
 			setOrderCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching order count:', error);
@@ -59,7 +59,7 @@ function AdminPage() {
 
 	const fetchProductCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/products?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/products?sort=count');
 			setProductCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching product count:', error);
@@ -68,7 +68,7 @@ function AdminPage() {
 
 	const fetchReservationCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/reservations?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reservations?sort=count');
 			setReservationCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching reservation count:', error);
@@ -77,7 +77,7 @@ function AdminPage() {
 
 	const fetchReviewCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/reviews?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reviews?sort=count');
 			setReviewCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching reservation count:', error);
@@ -86,7 +86,7 @@ function AdminPage() {
 
 	const fetchTicketCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/tickets?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/tickets?sort=count');
 			setTicketCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching user count:', error);
@@ -95,7 +95,7 @@ function AdminPage() {
 
 	const fetchUserCount = useCallback(async () => {
 		try {
-			const response = await axios.get('http://localhost:8000/api/users?sort=count');
+			const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/users?sort=count');
 			setUserCount(response.data.count);
 		} catch (error) {
 			console.error('Error fetching user count:', error);

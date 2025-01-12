@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import AdminNavbar from '../../components/admin/Navbar';
 import SideMenu from '../../components/admin/SideMenu';
 
-const socket = io('http://localhost:8000', {
+const socket = io('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000', {
 	withCredentials: true,
 	transports: ['websocket', 'polling']
 });

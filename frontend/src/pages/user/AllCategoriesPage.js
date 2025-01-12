@@ -11,7 +11,7 @@ function AllCategoriesPage() {
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
-				const response = await axios.get('http://localhost:8000/api/categories');
+				const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories');
 				setCategories(response.data.categories);
 			} catch (err) {
 				console.error('Error fetching categories:', err);

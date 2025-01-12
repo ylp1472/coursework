@@ -20,7 +20,7 @@ function ReservationForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		axios.post('http://localhost:8000/api/reservations/create', formData)
+		axios.post('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/reservations/create', formData)
 			.then((res) => {
 				console.log('Reservation Created:', res.data);
 				alert('Reservation created successfully');

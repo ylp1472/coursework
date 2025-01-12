@@ -11,7 +11,7 @@ function CategoryDropdown() {
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
-				const response = await axios.get('http://localhost:8000/api/categories');
+				const response = await axios.get('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories');
 				const data = response.data.categories;
 				setCategories(data);
 
@@ -19,7 +19,7 @@ function CategoryDropdown() {
 				await Promise.all(
 					data.map(async (category) => {
 						const productsResponse = await axios.get(
-							`http://localhost:8000/api/products?category=${category._id}`
+							`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/products?category=${category._id}`
 						);
 						setCategoryProducts(prev => ({
 							...prev,

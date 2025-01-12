@@ -17,7 +17,7 @@ function LoginPage() {
 		setHasError(false);
 
 		try {
-			const response = await axios.post('http://localhost:8000/api/auth/login', {
+			const response = await axios.post('http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/auth/login', {
 				email,
 				password
 			});

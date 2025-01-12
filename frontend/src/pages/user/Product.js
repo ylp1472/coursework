@@ -14,12 +14,12 @@ function ProductPage() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const productRes = await axios.get(`http://localhost:8000/api/products/${productId}`);
+				const productRes = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/products/${productId}`);
 				setProduct(productRes.data);
 
 				// Fetch category details
 				if (productRes.data.category) {
-					const categoryRes = await axios.get(`http://localhost:8000/api/categories/${productRes.data.category}`);
+					const categoryRes = await axios.get(`http://ec2-13-215-205-31.ap-southeast-1.compute.amazonaws.com:8000/api/categories/${productRes.data.category}`);
 					setCategory(categoryRes.data);
 				}
 
