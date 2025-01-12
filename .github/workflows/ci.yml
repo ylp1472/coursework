@@ -1,0 +1,33 @@
+name: Docker Image CI and Render Deploy
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Login DockerHub
+      # env:                         
+      #   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}     Commenting out the secrets configuration since we don't have access to add secrets in GitHub Classroom.
+      #   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}     Using direct credentials temporarily for this educational exercise only.
+      run: docker login -u debbie919 -p ,'Pkg2kcb)-v89TE'
+    - name: Build the Docker image
+      run: docker build -t debbie919/coursework-group_14:latest .  
+    - name: Push to DockerHub
+      run: docker push debbie919/coursework-group_14:latest
+      
+    # - name: Install Render CLI
+    #   run: |
+    #     curl -o render https://render.com/download/render-cli/linux-amd64
+    #     chmod +x render
+    #     sudo mv render /usr/local/bin/
+    
+    # - name: Deploy to Render
+    #   run: |
+    #     render deploy \
+    #       --service-id "srv-ctu40l0gph6c738p4k8g" \ 
+    #       --api-key "rnd_sdTNp4OXptVSEjaR0JtiBF08zUBL" 
+      # Note: Using API keys directly in workflow file due to GitHub Classroom limitations

@@ -1,0 +1,37 @@
+services:
+  backend:
+    image: node:22
+    volumes:
+      - ./backend:/usr/src/backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    working_dir: /usr/src/backend  # Set the working directory
+    command: sh -c "chmod +x /usr/src/backend/startup.sh && /usr/src/backend/startup.sh"
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /src/backend
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+  frontend:
+    image: node:22
+    volumes:
+      - ./frontend:/usr/src/frontend
+    ports:
+      - "3000:3000"
+    working_dir: /usr/src/frontend  # Set the working directory  
+    command: sh -c "chmod +x /usr/src/frontend/startup.sh && /usr/src/frontend/startup.sh"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /src/frontend
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
